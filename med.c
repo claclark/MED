@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2013 Luchen Tan and Charles L. A. Clarke
+  Copyright (C) 2013, 2016 Luchen Tan and Charles L. A. Clarke
 
   Compute maximized effectiveness differences.
 
@@ -26,7 +26,7 @@
 #include <unistd.h>
 #include <errno.h>
 
-char *version = "Thu Apr 25 15:09:52 EDT 2013";
+char *version = "Tue May 31 13:33:54 EDT 2016";
 
 /* Many of the constants below should really be set by command line args.  */
 
@@ -737,7 +737,7 @@ errMaximize (struct result *r1, int size1, struct result *r2, int size2)
   if (size2 > ERR_DEPTH) size2 = ERR_DEPTH;
 
   max1 = errHalf (r1, size1, r2, size2, P, 0);
-  max2 = errHalf (r2, size2, r1, size2, P, 0);
+  max2 = errHalf (r2, size2, r1, size1, P, 0);
 
   return (max1 > max2 ? max1 : max2);
 }
