@@ -515,7 +515,7 @@ loadQ (char *qrels, int *size)
   FILE *fp;
   char *line;
   struct qrel *q;
-  int i,n = 0;
+  int i = 0, n = 0;
 
   if ((fp = fopen (qrels, "r")) == NULL)
     error ("cannot open qrels file \"%s\"\n", qrels);
@@ -536,7 +536,7 @@ loadQ (char *qrels, int *size)
   while ((line = getLine (fp)))
     {
       char *a[4];
-      int i, topic, rel;
+      int topic, rel;
 
       if (
         split (line, a, 4) != 4
